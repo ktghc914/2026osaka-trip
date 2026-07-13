@@ -1,0 +1,226 @@
+:root {
+  --bg: #faf8f5;
+  --card: #ffffff;
+  --ink: #2b2b2b;
+  --muted: #7a7a7a;
+  --accent: #c0504d;
+  --accent-soft: #f3e4de;
+  --border: #ece7e1;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand span { color: var(--accent); }
+
+nav.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+nav.menu a {
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav.menu a:hover,
+nav.menu a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero {
+  padding: 56px 0 32px;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.back-link:hover { text-decoration: underline; }
+
+.hero h1 {
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+.hero p {
+  color: var(--muted);
+  margin: 0 0 32px;
+  font-size: 15px;
+}
+
+.nav-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  text-align: left;
+}
+
+.nav-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nav-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.tag {
+  align-self: flex-start;
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.nav-card h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.nav-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+section.page {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 84px;
+}
+
+section.page:first-of-type { border-top: none; }
+
+.flight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 24px 60px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .menu-toggle { display: inline-block; }
+  nav.menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 8px 16px 16px;
+  }
+  nav.menu.open { display: flex; }
+  nav.menu a { padding: 10px 12px; }
+}

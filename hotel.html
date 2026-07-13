@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>飯店・大阪 7 天 6 夜自由行</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">大阪<span>・</span>7天6夜</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="開啟選單">☰ 選單</button>
+    <nav class="menu" id="mainMenu">
+      <a href="flight.html">機票</a>
+      <a href="hotel.html" class="active">飯店</a>
+      <a href="index.html#checklist">購買清單</a>
+      <a href="index.html#day1">第一日</a>
+      <a href="index.html#day2">第二日</a>
+      <a href="index.html#day3">第三日</a>
+      <a href="index.html#day4">第四日</a>
+      <a href="index.html#day5">第五日</a>
+      <a href="index.html#day6">第六日</a>
+      <a href="index.html#day7">第七日</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <a class="back-link" href="index.html">← 回首頁</a>
+    <h1>飯店</h1>
+    <p>住宿資訊</p>
+  </div>
+
+  <section class="page" id="hotel">
+    <div class="flight-grid">
+      <div class="card">
+        <span class="tag">住宿資訊</span>
+        <h3>ホテルジオメティック大阪梅田</h3>
+        <p>電話：06-6311-1551</p>
+        <p>入住：2026/08/23（日）21:00</p>
+        <p>退房：2026/08/29（六）11:00・共 6 晚</p>
+        <p>房型：ファミリープレミア〈禁菸〉</p>
+        <p>人數：4 名・1 室</p>
+        <p>方案：限時優惠・12 歲以下兒童加床免費・不含餐</p>
+      </div>
+      <div class="card">
+        <span class="tag">房價</span>
+        <h3>每晚房價（每人，已折扣）</h3>
+        <p>08/23（日）¥5,425</p>
+        <p>08/24（一）¥5,050</p>
+        <p>08/25（二）¥5,050</p>
+        <p>08/26（三）¥5,050</p>
+        <p>08/27（四）¥5,050</p>
+        <p>08/28（五）¥5,425</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>大阪自由行手冊・僅供個人行程規劃使用</footer>
+
+<script>
+  // mobile menu toggle
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mainMenu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // active link highlight on scroll
+  const sections = document.querySelectorAll('section.page');
+  const links = menu.querySelectorAll('a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
