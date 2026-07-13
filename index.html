@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大阪 7 天 6 夜自由行</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --card: #ffffff;
+    --ink: #2b2b2b;
+    --muted: #7a7a7a;
+    --accent: #c0504d;
+    --accent-soft: #f3e4de;
+    --border: #ece7e1;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+  body {
+    margin: 0;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 248, 245, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .brand span { color: var(--accent); }
+
+  nav.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: flex-end;
+  }
+
+  nav.menu a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  nav.menu a:hover,
+  nav.menu a.active {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .hero {
+    padding: 56px 0 32px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    margin: 0 0 8px;
+  }
+
+  .hero p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 15px;
+  }
+
+  section.page {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 84px;
+  }
+
+  section.page:first-of-type { border-top: none; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .section-head .tag {
+    font-size: 12px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .section-head h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+  }
+
+  .card p, .card ul {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .card ul { padding-left: 18px; }
+  .card li { margin-bottom: 4px; }
+
+  .placeholder {
+    border: 1.5px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    color: var(--muted);
+    font-size: 14px;
+    background: repeating-linear-gradient(135deg, #fff, #fff 10px, #fbf7f3 10px, #fbf7f3 20px);
+  }
+
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 24px 60px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 760px) {
+    .menu-toggle { display: inline-block; }
+    nav.menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 8px 16px 16px;
+    }
+    nav.menu.open { display: flex; }
+    nav.menu a { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">大阪<span>・</span>7天6夜</div>
+    <button class="menu-toggle" id="menuToggle" aria-label="開啟選單">☰ 選單</button>
+    <nav class="menu" id="mainMenu">
+      <a href="#flight">機票</a>
+      <a href="#hotel">飯店</a>
+      <a href="#checklist">購買清單</a>
+      <a href="#day1">第一日</a>
+      <a href="#day2">第二日</a>
+      <a href="#day3">第三日</a>
+      <a href="#day4">第四日</a>
+      <a href="#day5">第五日</a>
+      <a href="#day6">第六日</a>
+      <a href="#day7">第七日</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <h1>大阪 7 天 6 夜自由行</h1>
+    <p>行程總覽・機票飯店資訊・每日安排</p>
+  </div>
+
+  <section class="page" id="flight">
+    <div class="section-head"><span class="tag">INFO</span><h2>機票</h2></div>
+    <div class="placeholder">
+      這裡放去程／回程航班資訊：航空公司、班機編號、起降時間、機場、訂位代號等。<br>
+      請提供內容，我再幫你填入。
+    </div>
+  </section>
+
+  <section class="page" id="hotel">
+    <div class="section-head"><span class="tag">INFO</span><h2>飯店</h2></div>
+    <div class="placeholder">
+      這裡放住宿資訊：飯店名稱、地址、入住／退房日期、訂房代號、交通方式等（若中途換飯店可分卡片列出）。<br>
+      請提供內容，我再幫你填入。
+    </div>
+  </section>
+
+  <section class="page" id="checklist">
+    <div class="section-head"><span class="tag">INFO</span><h2>購買清單</h2></div>
+    <div class="checklist-grid">
+      <div class="placeholder">分類一（例如：藥妝）<br>項目清單待補</div>
+      <div class="placeholder">分類二（例如：伴手禮）<br>項目清單待補</div>
+      <div class="placeholder">分類三（例如：3C／其他）<br>項目清單待補</div>
+    </div>
+  </section>
+
+  <section class="page" id="day1">
+    <div class="section-head"><span class="tag">DAY 1</span><h2>第一日行程</h2></div>
+    <div class="day-grid">
+      <div class="placeholder">上午：待補</div>
+      <div class="placeholder">下午：待補</div>
+      <div class="placeholder">晚上：待補</div>
+    </div>
+  </section>
+
+  <section class="page" id="day2">
+    <div class="section-head"><span class="tag">DAY 2</span><h2>第二日行程</h2></div>
+    <div class="day-grid">
+      <div class="placeholder">上午：待補</div>
+      <div class="placeholder">下午：待補</div>
+      <div class="placeholder">晚上：待補</div>
+    </div>
+  </section>
+
+  <section class="page" id="day3">
+    <div class="section-head"><span class="tag">DAY 3</span><h2>第三日行程</h2></div>
+    <div class="day-grid">
+      <div class="placeholder">上午：待補</div>
+      <div class="placeholder">下午：待補</div>
+      <div class="placeholder">晚上：待補</div>
+    </div>
+  </section>
+
+  <section class="page" id="day4">
+    <div class="section-head"><span class="tag">DAY 4</span><h2>第四日行程</h2></div>
+    <div class="day-grid">
+      <div class="placeholder">上午：待補</div>
+      <div class="placeholder">下午：待補</div>
+      <div class="placeholder">晚上：待補</div>
+    </div>
+  </section>
+
+  <section class="page" id="day5">
+    <div class="section-head"><span class="tag">DAY 5</span><h2>第五日行程</h2></div>
+    <div class="day-grid">
+      <div class="placeholder">上午：待補</div>
+      <div class="placeholder">下午：待補</div>
+      <div class="placeholder">晚上：待補</div>
+    </div>
+  </section>
+
+  <section class="page" id="day6">
+    <div class="section-head"><span class="tag">DAY 6</span><h2>第六日行程</h2></div>
+    <div class="day-grid">
+      <div class="placeholder">上午：待補</div>
+      <div class="placeholder">下午：待補</div>
+      <div class="placeholder">晚上：待補</div>
+    </div>
+  </section>
+
+  <section class="page" id="day7">
+    <div class="section-head"><span class="tag">DAY 7</span><h2>第七日行程</h2></div>
+    <div class="day-grid">
+      <div class="placeholder">上午：待補</div>
+      <div class="placeholder">下午：待補</div>
+      <div class="placeholder">晚上：待補</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>大阪自由行手冊・僅供個人行程規劃使用</footer>
+
+<script>
+  // mobile menu toggle
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mainMenu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // active link highlight on scroll
+  const sections = document.querySelectorAll('section.page');
+  const links = menu.querySelectorAll('a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
