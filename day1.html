@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一日・大阪 7 天 6 夜自由行</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">大阪<span>・</span>7天6夜</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="開啟選單">☰ 選單</button>
+    <nav class="menu" id="mainMenu">
+      <a href="flight.html">機票</a>
+      <a href="hotel.html">飯店</a>
+      <a href="index.html#checklist">購買清單</a>
+      <a href="day1.html" class="active">第一日</a>
+      <a href="day2.html">第二日</a>
+      <a href="index.html#day3">第三日</a>
+      <a href="index.html#day4">第四日</a>
+      <a href="index.html#day5">第五日</a>
+      <a href="index.html#day6">第六日</a>
+      <a href="index.html#day7">第七日</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <a class="back-link" href="index.html">← 回首頁</a>
+    <h1>第一日</h1>
+    <p>8/23（日）・抵達大阪＆飯店 Check-in</p>
+  </div>
+
+  <section class="page" id="day1">
+    <div class="timeline">
+      <div class="card">
+        <span class="tag">18:00</span>
+        <h3>🛬 抵達關西機場 (KIX) 第二航廈（IT 212）</h3>
+        <p>專家提醒：台灣虎航通常停靠在第二航廈 (T2)。下機後請快速通過海關。</p>
+        <p class="note">記得提前填寫好 Visit Japan Web 的入境與海關 QR Code，或準備好護照走自動通關驗證。</p>
+      </div>
+      <div class="card">
+        <span class="tag">18:45 - 19:00</span>
+        <h3>🚌 第二航廈 ➡️ 第一航廈／關西機場車站</h3>
+        <p>第二航廈沒有電車站，請跟著指標搭乘免費接駁巴士前往第一航廈（車程約 7~9 分鐘）。下車後過天橋就是「JR 關西機場站」。</p>
+      </div>
+      <div class="card">
+        <span class="tag">19:15 - 19:30</span>
+        <h3>🎫 換取／購買 HARUKA 車票</h3>
+        <p>至 JR 綠色窗口（有自動售票機可掃 QR code 換票）取得 HARUKA 特急車票。</p>
+      </div>
+      <div class="card">
+        <span class="tag">19:30 - 20:17</span>
+        <h3>🚄 搭乘 JR HARUKA 特急 46 號直達「大阪站」</h3>
+        <p>車程時間：約 47 分鐘。</p>
+        <p class="note">注意：HARUKA 停靠的是大阪車站的「地下月台」（東地下口／うめきたエリア）。<br>備用班次：若出關較慢，可改搭 19:52 發車的 HARUKA 48 號，20:41 抵達大阪。</p>
+      </div>
+      <div class="card">
+        <span class="tag">20:20 - 20:45</span>
+        <h3>🚶‍♂️ 大阪站地下月台 ➡️ 步行至飯店 Check-in</h3>
+        <p>從大阪站的「東地下口」或「連絡橋口」出站，步行約 12~15 分鐘至飯店。</p>
+        <p class="note">飯店位在梅田東側（太融寺町／兔我野町一帶）。第一天拖著大行李若覺得累，也很推薦直接在車站排隊搭計程車（車資約 600~1,000 日圓，5 分鐘內直達飯店門口）。</p>
+      </div>
+      <div class="card">
+        <span class="tag">21:00 ~</span>
+        <h3>🌙 🍜 梅田東區／阪急東通商店街 吃宵夜與散步</h3>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>大阪自由行手冊・僅供個人行程規劃使用</footer>
+
+<script>
+  // mobile menu toggle
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mainMenu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // active link highlight on scroll
+  const sections = document.querySelectorAll('section.page');
+  const links = menu.querySelectorAll('a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
