@@ -238,6 +238,13 @@ section.page:first-of-type { border-top: none; }
   margin-bottom: 4px;
 }
 
+.map-embed {
+  width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: var(--radius);
+}
+
 .timeline {
   display: flex;
   flex-direction: column;
