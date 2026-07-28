@@ -243,6 +243,61 @@ section.page:first-of-type { border-top: none; }
   margin-bottom: 4px;
 }
 
+.coupon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.coupon-thumb {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.coupon-thumb:hover { border-color: var(--accent); }
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
+.lightbox-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: background 0.15s ease;
+}
+
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.15); }
+
 .map-embed {
   width: 100%;
   height: 250px;

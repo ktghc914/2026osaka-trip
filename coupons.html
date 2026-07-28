@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>購買清單・大阪 7 天 6 夜自由行</title>
+<title>優惠券・大阪 7 天 6 夜自由行</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,8 +15,8 @@
     <nav class="menu" id="mainMenu">
       <a href="flight.html">機票</a>
       <a href="hotel.html">飯店</a>
-      <a href="checklist.html" class="active">購買清單</a>
-      <a href="coupons.html">優惠券</a>
+      <a href="checklist.html">購買清單</a>
+      <a href="coupons.html" class="active">優惠券</a>
       <a href="day1.html">第一日 8/23</a>
       <a href="day2.html">第二日 8/24</a>
       <a href="day3.html">第三日 8/25</a>
@@ -32,44 +32,35 @@
 
   <div class="hero">
     <a class="back-link" href="index.html">← 回首頁</a>
-    <h1>購買清單</h1>
-    <p>已購買紀錄</p>
+    <h1>優惠券</h1>
+    <p>各店優惠券／折價券</p>
   </div>
 
-  <section class="page" id="checklist">
-    <div class="timeline">
+  <section class="page" id="coupons">
+    <div class="coupon-grid">
       <div class="card">
-        <h3>去痘面膜</h3>
-        <p>地點：堂吉訶德</p>
+        <img class="coupon-thumb" src="images/coupon-alpen-sports.jpg" alt="Alpengroup Sports 優惠券" onclick="openLightbox(this.src, this.alt)">
+        <h3>Alpengroup Sports</h3>
       </div>
       <div class="card">
-        <h3>包包</h3>
-        <p>地點：CELINE</p>
+        <img class="coupon-thumb" src="images/coupon-biccamera.jpg" alt="BicCamera 優惠券" onclick="openLightbox(this.src, this.alt)">
+        <h3>BicCamera</h3>
       </div>
       <div class="card">
-        <h3>Munsingwear 企鵝衣服</h3>
-        <p>地點：阪神梅田本店 5F</p>
+        <img class="coupon-thumb" src="images/coupon-sundrug.jpg" alt="SUNDRUG 藥妝 優惠券" onclick="openLightbox(this.src, this.alt)">
+        <h3>SUNDRUG 藥妝</h3>
       </div>
       <div class="card">
-        <h3>蜜粉 Missha</h3>
-        <p>地點：梅田藥粧</p>
+        <img class="coupon-thumb" src="images/coupon-donki.jpg" alt="唐吉軻德 優惠券" onclick="openLightbox(this.src, this.alt)">
+        <h3>唐吉軻德</h3>
       </div>
       <div class="card">
-        <h3>無鐵砲</h3>
-        <p>地點：無鉄砲 大阪店</p>
+        <img class="coupon-thumb" src="images/coupon-daimaru.jpg" alt="大丸百貨 優惠券" onclick="openLightbox(this.src, this.alt)">
+        <h3>大丸百貨</h3>
       </div>
       <div class="card">
-        <h3>Ikareta Noodle Fishtons（いかれたNOODLE Fishtons）</h3>
-      </div>
-      <div class="card">
-        <h3>Moeyo Mensuke Ramen 燃えよ麺助</h3>
-      </div>
-      <div class="card">
-        <h3>next shikaku next□（ネクストシカク）</h3>
-      </div>
-      <div class="card">
-        <h3>包包（歌雅）</h3>
-        <p>地點：梅田阪急 6 樓</p>
+        <img class="coupon-thumb" src="images/coupon-aidenoh.jpg" alt="愛電王 優惠券" onclick="openLightbox(this.src, this.alt)">
+        <h3>愛電王</h3>
       </div>
     </div>
   </section>
@@ -77,6 +68,11 @@
 </main>
 
 <footer>大阪自由行手冊・僅供個人行程規劃使用</footer>
+
+<div class="lightbox" id="lightbox" onclick="if(event.target === this) closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">← 返回優惠券頁面</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
 
 <script>
   // mobile menu toggle
@@ -97,6 +93,19 @@
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => observer.observe(s));
+
+  // coupon lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('open');
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+  }
 </script>
 
 </body>
