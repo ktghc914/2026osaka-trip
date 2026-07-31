@@ -243,6 +243,14 @@ section.page:first-of-type { border-top: none; }
   margin-bottom: 4px;
 }
 
+.card img.full-photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
 .coupon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
