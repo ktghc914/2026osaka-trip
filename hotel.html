@@ -69,6 +69,8 @@
 
 <footer>大阪自由行手冊・僅供個人行程規劃使用</footer>
 
+<button class="back-to-top" id="backToTop" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
 <script>
   // mobile menu toggle
   const toggle = document.getElementById('menuToggle');
@@ -88,6 +90,12 @@
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => observer.observe(s));
+
+  // back-to-top visibility
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('show', window.scrollY > 300);
+  });
 </script>
 
 </body>
