@@ -48,7 +48,7 @@
       <div class="card">
         <h3>📄 金平安PRO 6專案・保單條款</h3>
         <p>南山產物個人旅行平安保險（金平安PRO 6專案）完整保單條款 PDF，含承保範圍、除外責任、理賠申請文件等詳細條款。</p>
-        <p><a href="files/insurance-policy-terms.pdf" target="_blank" rel="noopener noreferrer">保單條款 PDF →</a></p>
+        <p><a href="javascript:void(0)" onclick="openPdfLightbox()">保單條款 PDF →</a></p>
       </div>
     </div>
   </section>
@@ -58,6 +58,11 @@
 <footer>大阪自由行手冊・僅供個人行程規劃使用</footer>
 
 <button class="back-to-top" id="backToTop" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="lightbox" id="pdfLightbox" onclick="if(event.target === this) closePdfLightbox()">
+  <button class="lightbox-close" onclick="closePdfLightbox()">← 返回保單頁面</button>
+  <iframe id="pdfFrame" class="pdf-frame" src="" title="保單條款 PDF"></iframe>
+</div>
 
 <script>
   // mobile menu toggle
@@ -84,6 +89,18 @@
   window.addEventListener('scroll', () => {
     backToTop.classList.toggle('show', window.scrollY > 300);
   });
+
+  // PDF lightbox
+  const pdfLightbox = document.getElementById('pdfLightbox');
+  const pdfFrame = document.getElementById('pdfFrame');
+  function openPdfLightbox() {
+    pdfFrame.src = 'files/insurance-policy-terms.pdf';
+    pdfLightbox.classList.add('open');
+  }
+  function closePdfLightbox() {
+    pdfLightbox.classList.remove('open');
+    pdfFrame.src = '';
+  }
 </script>
 
 </body>

@@ -366,3 +366,11 @@ footer {
 .back-to-top.show { opacity: 1; pointer-events: auto; }
 
 .back-to-top:hover { transform: translateY(-3px); }
+
+.pdf-frame {
+  width: 90vw;
+  height: 85vh;
+  border: 0;
+  border-radius: var(--radius);
+  background: #fff;
+}
