@@ -60,7 +60,10 @@
 <button class="back-to-top" id="backToTop" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <div class="lightbox" id="pdfLightbox" onclick="if(event.target === this) closePdfLightbox()">
-  <button class="lightbox-close" onclick="closePdfLightbox()">← 返回保單頁面</button>
+  <div class="lightbox-bar">
+    <button class="lightbox-close" onclick="closePdfLightbox()">← 返回保單頁面</button>
+    <a class="lightbox-close" href="files/insurance-policy-terms.pdf" target="_blank" rel="noopener noreferrer">在新分頁開啟原始 PDF ↗</a>
+  </div>
   <iframe id="pdfFrame" class="pdf-frame" src="" title="保單條款 PDF"></iframe>
 </div>
 
@@ -94,7 +97,7 @@
   const pdfLightbox = document.getElementById('pdfLightbox');
   const pdfFrame = document.getElementById('pdfFrame');
   function openPdfLightbox() {
-    pdfFrame.src = 'files/insurance-policy-terms.pdf';
+    pdfFrame.src = 'files/insurance-policy-terms.pdf#toolbar=1&navpanes=1&view=FitH';
     pdfLightbox.classList.add('open');
   }
   function closePdfLightbox() {

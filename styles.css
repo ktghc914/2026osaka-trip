@@ -301,10 +301,18 @@ section.page:first-of-type { border-top: none; }
   cursor: pointer;
   padding: 8px 16px;
   border-radius: 999px;
+  text-decoration: none;
   transition: background 0.15s ease;
 }
 
 .lightbox-close:hover { background: rgba(255, 255, 255, 0.15); }
+
+.lightbox-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
 
 .map-embed {
   width: 100%;
