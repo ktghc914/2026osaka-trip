@@ -97,7 +97,8 @@
   const pdfLightbox = document.getElementById('pdfLightbox');
   const pdfFrame = document.getElementById('pdfFrame');
   function openPdfLightbox() {
-    pdfFrame.src = 'files/insurance-policy-terms.pdf#toolbar=1&navpanes=1&view=FitH';
+    const pdfUrl = new URL('files/insurance-policy-terms.pdf', window.location.href).href;
+    pdfFrame.src = 'https://docs.google.com/gview?embedded=true&url=' + encodeURIComponent(pdfUrl);
     pdfLightbox.classList.add('open');
   }
   function closePdfLightbox() {
