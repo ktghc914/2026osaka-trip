@@ -40,6 +40,11 @@
   <section class="page" id="checklist">
     <div class="timeline">
       <div class="card">
+        <img class="coupon-thumb" src="images/otc-guide-1.jpg" alt="常備用藥／藥妝參考" onclick="openMedsLightbox()">
+        <h3>💊 常備用藥／藥妝參考</h3>
+        <p>日本藥妝店常見保健品／藥品比較整理，依症狀挑選參考。點圖看全部 5 張。</p>
+      </div>
+      <div class="card">
         <h3>去痘面膜</h3>
         <p>地點：堂吉訶德</p>
       </div>
@@ -86,6 +91,17 @@
 
 <button class="back-to-top" id="backToTop" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+<div class="lightbox" id="medsLightbox" onclick="if(event.target === this) closeMedsLightbox()">
+  <button class="lightbox-close" onclick="closeMedsLightbox()">← 返回購買清單</button>
+  <div class="lightbox-scroll">
+    <img src="images/otc-guide-1.jpg" alt="命之母系列比較（更年期／生理不適）">
+    <img src="images/otc-guide-2.jpg" alt="護眼葉黃素系列比較">
+    <img src="images/otc-guide-3.jpg" alt="維他命BB系列比較（皮膚／口內炎）">
+    <img src="images/otc-guide-4.jpg" alt="美白錠系列比較">
+    <img src="images/otc-guide-5.jpg" alt="維他命B群／抗疲勞系列比較">
+  </div>
+</div>
+
 <script>
   // mobile menu toggle
   const toggle = document.getElementById('menuToggle');
@@ -111,6 +127,11 @@
   window.addEventListener('scroll', () => {
     backToTop.classList.toggle('show', window.scrollY > 300);
   });
+
+  // meds lightbox
+  const medsLightbox = document.getElementById('medsLightbox');
+  function openMedsLightbox() { medsLightbox.classList.add('open'); }
+  function closeMedsLightbox() { medsLightbox.classList.remove('open'); }
 </script>
 
 </body>
