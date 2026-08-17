@@ -117,6 +117,17 @@
         <p class="note">替代公車：步行下山至「地下鐵三宮站前」公車站，搭乘神戶市營巴士 18 號至「摩耶ケーブル下」站。</p>
       </div>
       <div class="card">
+        <img class="coupon-thumb" src="images/mayasan-bus-guide-3.jpg" alt="18號公車三宮站牌尋找步驟" onclick="openMayaBusLightbox()">
+        <span class="tag">摩耶山交通方式</span>
+        <h3>🚌 18 號公車三宮站牌說明</h3>
+        <p>18 號公車在三宮車站有三個公車站牌，地圖上看起來貌似都在一起，但其實用走的因為天橋、過馬路等因素至少都要 10 分鐘的路程：</p>
+        <p><a href="https://kotsu.city.kobe.lg.jp/bus/bus-stop-list/bus-224/" target="_blank" rel="noopener noreferrer">① 三宮駅前 →</a>　神戶阪急（Kobe Hankyu）對面。</p>
+        <p><a href="https://kotsu.city.kobe.lg.jp/bus/bus-stop-list/bus-266/" target="_blank" rel="noopener noreferrer">② 三宮駅ターミナル前 →</a>　位於三宮 JTB 旅行社前面，從「JR三ノ宮站」東口出來即達。</p>
+        <p><a href="https://kotsu.city.kobe.lg.jp/bus/bus-stop-list/bus-225/" target="_blank" rel="noopener noreferrer">③ 地下鉄三宮駅前 →</a>　從地下鐵「三宮站」東口出來即達。</p>
+        <p class="highlight">建議在①三宮駅前搭乘才有位置坐，務必記得要搭「六甲道方面」的車！</p>
+        <p class="note">點圖看實地尋找②三宮駅ターミナル前站牌的步驟照片（共 5 張）。</p>
+      </div>
+      <div class="card">
         <span class="tag">17:30 - 18:00</span>
         <h3>摩耶山登山換乘</h3>
         <p>搭乘摩耶登山纜車至虹之站，再轉乘空中吊車至星之站（山頂）。</p>
@@ -150,6 +161,17 @@
 
 <button class="back-to-top" id="backToTop" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+<div class="lightbox" id="mayaBusLightbox" onclick="if(event.target === this) closeMayaBusLightbox()">
+  <button class="lightbox-close" onclick="closeMayaBusLightbox()">← 返回第二日行程</button>
+  <div class="lightbox-scroll">
+    <img src="images/mayasan-bus-guide-1.jpg" alt="① 巴士搭乘的地點在 JR 三宮出站的正下面">
+    <img src="images/mayasan-bus-guide-2.jpg" alt="② 地點不是很好找，先找到 JTB 及摩斯 MOS 的招牌就到了">
+    <img src="images/mayasan-bus-guide-3.jpg" alt="③ 18 號公車在第 3 等候站">
+    <img src="images/mayasan-bus-guide-4.jpg" alt="④ 看不懂日文沒關係，找摩耶山相關文字即可（或 JR 六甲道）">
+    <img src="images/mayasan-bus-guide-5.jpg" alt="⑤ 下方還有簡體中文參考喔">
+  </div>
+</div>
+
 <script>
   // mobile menu toggle
   const toggle = document.getElementById('menuToggle');
@@ -175,6 +197,11 @@
   window.addEventListener('scroll', () => {
     backToTop.classList.toggle('show', window.scrollY > 300);
   });
+
+  // maya bus stop guide lightbox
+  const mayaBusLightbox = document.getElementById('mayaBusLightbox');
+  function openMayaBusLightbox() { mayaBusLightbox.classList.add('open'); }
+  function closeMayaBusLightbox() { mayaBusLightbox.classList.remove('open'); }
 </script>
 
 </body>
