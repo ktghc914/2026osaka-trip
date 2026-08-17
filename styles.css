@@ -332,6 +332,17 @@ section.page:first-of-type { border-top: none; }
   border-radius: var(--radius);
 }
 
+.lightbox-caption {
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  margin-bottom: -8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .map-embed {
   width: 100%;
   height: 250px;
